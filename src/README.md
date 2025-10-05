@@ -1,4 +1,4 @@
-# Kadane’s Algorithm Benchmark (Assignment 2 – Pair 3)
+## Kadane’s Algorithm Benchmark (Assignment 2 – Pair 3)
 
 ## Overview
 This project implements and benchmarks **Kadane’s Algorithm** for the *Maximum Subarray Sum Problem* as part of the Design and Analysis of Algorithms course (Assignment 2, Pair 3).

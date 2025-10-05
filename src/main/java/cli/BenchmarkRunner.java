@@ -9,14 +9,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * CLI benchmark runner for Kadane's algorithm.
- * Generates arrays of various sizes and distributions and measures time and metrics.
- *
- * Usage: java -cp target/yourjar.jar cli.BenchmarkRunner
- *
- * This class prints CSV lines to stdout and also writes results to docs/benchmarks.csv
- */
 public class BenchmarkRunner {
 
     private static int[] randomArray(int n, int bound, Random rnd) {
@@ -39,8 +31,8 @@ public class BenchmarkRunner {
 
     private static int[] nearlySortedArray(int n, Random rnd) {
         int[] a = sortedArray(n);
-        // introduce few swaps
-        int swaps = Math.max(1, n/100); // 1% shuffled
+
+        int swaps = Math.max(1, n/100);
         for (int i = 0; i < swaps; i++) {
             int x = rnd.nextInt(n);
             int y = rnd.nextInt(n);
@@ -65,7 +57,7 @@ public class BenchmarkRunner {
                 String[] names = new String[] {"random","sorted","reverse","nearly-sorted"};
                 for (int di = 0; di < datasets.length; di++) {
                     int[] data = datasets[di];
-                    // run a few trials and take median
+
                     long[] times = new long[5];
                     long[] comps = new long[5];
                     long[] assigns = new long[5];
@@ -81,7 +73,7 @@ public class BenchmarkRunner {
                         comps[t] = tracker.getComparisons();
                         assigns[t] = tracker.getAssignments();
                         accesses[t] = tracker.getArrayAccesses();
-                        // write each trial as a CSV line
+
                         fw.write(String.format("%d,%s,%d,%d,%d,%d,%d,%d,%d\n",
                                 size, names[di], times[t], comps[t], assigns[t], accesses[t],
                                 r.start, r.end, r.maxSum));

@@ -1,9 +1,5 @@
 package metrics;
 
-/**
- * Simple performance tracker to count comparisons, assignments, array accesses.
- * This is intentionally lightweight and serializable to CSV-friendly lines.
- */
 public class PerformanceTracker {
     private long comparisons = 0;
     private long assignments = 0;
